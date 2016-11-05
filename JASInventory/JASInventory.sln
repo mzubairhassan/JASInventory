@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JASInventory", "JASInventory\JASInventory.csproj", "{4A0B2EF4-B3BE-414B-B802-151F072091BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JASDataModel", "JASDataModel\JASDataModel.csproj", "{C1667BF5-CDF9-408C-B212-748DF4F4F6A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JascreteInventorySystem", "JascreteInventorySystem\JascreteInventorySystem.csproj", "{CE6461EA-512D-418F-9575-57F127A4448D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4A0B2EF4-B3BE-414B-B802-151F072091BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A0B2EF4-B3BE-414B-B802-151F072091BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A0B2EF4-B3BE-414B-B802-151F072091BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A0B2EF4-B3BE-414B-B802-151F072091BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1667BF5-CDF9-408C-B212-748DF4F4F6A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1667BF5-CDF9-408C-B212-748DF4F4F6A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1667BF5-CDF9-408C-B212-748DF4F4F6A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1667BF5-CDF9-408C-B212-748DF4F4F6A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE6461EA-512D-418F-9575-57F127A4448D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE6461EA-512D-418F-9575-57F127A4448D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE6461EA-512D-418F-9575-57F127A4448D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE6461EA-512D-418F-9575-57F127A4448D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

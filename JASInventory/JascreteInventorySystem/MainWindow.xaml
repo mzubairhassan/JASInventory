@@ -1,0 +1,10 @@
+﻿<Window x:Class="JascreteInventorySystem.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="134,116,0,0" VerticalAlignment="Top"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="308,94,0,126" VerticalAlignment="Stretch" Width="100" RenderTransformOrigin="0.737,-0.235"/>
+
+    </Grid>
+</Window>

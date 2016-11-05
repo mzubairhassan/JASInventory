@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JascreteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="AccountName" />
+    </Key>
+    <Property Name="AccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AccountType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DebitBalance" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Journals" Relationship="Self.FK_Journal_Account" FromRole="Account" ToRole="Journal" />
+    <NavigationProperty Name="Journals1" Relationship="Self.FK_Journal_Account1" FromRole="Account" ToRole="Journal" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Customer_Id" />
+    </Key>
+    <Property Name="Customer_Id" Type="Int32" Nullable="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CustomerAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CustomerPhone" Type="Int32" />
+    <NavigationProperty Name="Receipt_Sale" Relationship="Self.FK_Receipt_Sale_Customer" FromRole="Customer" ToRole="Receipt_Sale" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmpId" />
+    </Key>
+    <Property Name="EmpId" Type="Int32" Nullable="false" />
+    <Property Name="EmpName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmpAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmpPhone" Type="Int32" />
+    <NavigationProperty Name="EmpPay" Relationship="Self.FK_EmpPay_Employee" FromRole="Employee" ToRole="EmpPay" />
+  </EntityType>
+  <EntityType Name="EmpPay">
+    <Key>
+      <PropertyRef Name="EmpId" />
+    </Key>
+    <Property Name="EmpId" Type="Int32" Nullable="false" />
+    <Property Name="Salary" Type="Double" Nullable="false" />
+    <Property Name="Commission" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_EmpPay_Employee" FromRole="EmpPay" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="ItemId" />
+    </Key>
+    <Property Name="ItemId" Type="Binary" MaxLength="50" FixedLength="false" Nullable="false" />
+    <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ItemDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Receipt_Purchase" Relationship="Self.FK_Receipt_Purchase_Item" FromRole="Item" ToRole="Receipt_Purchase" />
+  </EntityType>
+  <EntityType Name="Journal">
+    <Key>
+      <PropertyRef Name="EntryNo" />
+    </Key>
+    <Property Name="EntryNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DebitAc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreditAc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DebitAmount" Type="Double" Nullable="false" />
+    <Property Name="CreditAmount" Type="Double" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TransDate" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="Account" Relationship="Self.FK_Journal_Account" FromRole="Journal" ToRole="Account" />
+    <NavigationProperty Name="Account1" Relationship="Self.FK_Journal_Account1" FromRole="Journal" ToRole="Account" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="PaymentId" />
+    </Key>
+    <Property Name="PaymentId" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TimeLimit" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Amount" Type="Double" Nullable="false" />
+    <Property Name="PayementType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Receipt_Purchase" Relationship="Self.FK_Payment_Receipt_Purchase" FromRole="Payment" ToRole="Receipt_Purchase" />
+    <NavigationProperty Name="Receipt_Sale" Relationship="Self.FK_Payment_Receipt_Sale" FromRole="Payment" ToRole="Receipt_Sale" />
+  </EntityType>
+  <EntityType Name="Receipt_Purchase">
+    <Key>
+      <PropertyRef Name="ReceiptNo" />
+    </Key>
+    <Property Name="ReceiptNo" Type="Int32" Nullable="false" />
+    <Property Name="PurchaseDate" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="Qty" Type="Int32" Nullable="false" />
+    <Property Name="SellerId" Type="Int32" Nullable="false" />
+    <Property Name="DeliveryCost" Type="Double" Nullable="false" />
+    <Property Name="Price" Type="Double" Nullable="false" />
+    <Property Name="Total" Type="Double" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ItemId" Type="Binary" MaxLength="50" FixedLength="false" Nullable="false" />
+    <NavigationProperty Name="Item" Relationship="Self.FK_Receipt_Purchase_Item" FromRole="Receipt_Purchase" ToRole="Item" />
+    <NavigationProperty Name="Payment" Relationship="Self.FK_Payment_Receipt_Purchase" FromRole="Receipt_Purchase" ToRole="Payment" />
+    <NavigationProperty Name="Seller" Relationship="Self.FK_Receipt_Purchase_Seller" FromRole="Receipt_Purchase" ToRole="Seller" />
+  </EntityType>
+  <EntityType Name="Receipt_Sale">
+    <Key>
+      <PropertyRef Name="ReceiptNo" />
+    </Key>
+    <Property Name="ReceiptNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SaleDate" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CustomerId" Type="Int32" Nullable="false" />
+    <Property Name="TileId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Count" Type="Int32" Nullable="false" />
+    <Property Name="DeliveryCost" Type="Double" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Price" Type="Double" Nullable="false" />
+    <Property Name="Total" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_Receipt_Sale_Customer" FromRole="Receipt_Sale" ToRole="Customer" />
+    <NavigationProperty Name="Payment" Relationship="Self.FK_Payment_Receipt_Sale" FromRole="Receipt_Sale" ToRole="Payment" />
+    <NavigationProperty Name="Tile" Relationship="Self.FK_Receipt_Sale_Tile" FromRole="Receipt_Sale" ToRole="Tile" />
+  </EntityType>
+  <EntityType Name="Seller">
+    <Key>
+      <PropertyRef Name="SellerId" />
+    </Key>
+    <Property Name="SellerId" Type="Int32" Nullable="false" />
+    <Property Name="SellerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="SellerPhone" Type="Int32" />
+    <Property Name="SellerAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Receipt_Purchase" Relationship="Self.FK_Receipt_Purchase_Seller" FromRole="Seller" ToRole="Receipt_Purchase" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Tile">
+    <Key>
+      <PropertyRef Name="TileID" />
+    </Key>
+    <Property Name="TileID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TileName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TileSize" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TileColor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TilePrice" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Receipt_Sale" Relationship="Self.FK_Receipt_Sale_Tile" FromRole="Tile" ToRole="Receipt_Sale" />
+    <NavigationProperty Name="TileStocks" Relationship="Self.FK_TileStock_Tile" FromRole="Tile" ToRole="TileStock" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TileStock">
+    <Key>
+      <PropertyRef Name="TileId" />
+      <PropertyRef Name="Qty" />
+      <PropertyRef Name="DateQtyUpdate" />
+      <PropertyRef Name="QtySold" />
+    </Key>
+    <Property Name="TileId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Qty" Type="Int32" Nullable="false" />
+    <Property Name="DateQtyUpdate" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="QtySold" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Tile" Relationship="Self.FK_TileStock_Tile" FromRole="TileStock" ToRole="Tile" />
+  </EntityType>
+  <Association Name="FK_Journal_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="Journal" Type="Self.Journal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AccountName" />
+      </Principal>
+      <Dependent Role="Journal">
+        <PropertyRef Name="DebitAc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Journal_Account1">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="Journal" Type="Self.Journal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AccountName" />
+      </Principal>
+      <Dependent Role="Journal">
+        <PropertyRef Name="CreditAc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Receipt_Sale_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Receipt_Sale" Type="Self.Receipt_Sale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Customer_Id" />
+      </Principal>
+      <Dependent Role="Receipt_Sale">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmpPay_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="EmpPay" Type="Self.EmpPay" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmpId" />
+      </Principal>
+      <Dependent Role="EmpPay">
+        <PropertyRef Name="EmpId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Receipt_Purchase_Item">
+    <End Role="Item" Type="Self.Item" Multiplicity="1" />
+    <End Role="Receipt_Purchase" Type="Self.Receipt_Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="ItemId" />
+      </Principal>
+      <Dependent Role="Receipt_Purchase">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payment_Receipt_Purchase">
+    <End Role="Receipt_Purchase" Type="Self.Receipt_Purchase" Multiplicity="1" />
+    <End Role="Payment" Type="Self.Payment" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Receipt_Purchase">
+        <PropertyRef Name="ReceiptNo" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="PaymentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payment_Receipt_Sale">
+    <End Role="Receipt_Sale" Type="Self.Receipt_Sale" Multiplicity="1" />
+    <End Role="Payment" Type="Self.Payment" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Receipt_Sale">
+        <PropertyRef Name="ReceiptNo" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="PaymentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Receipt_Purchase_Seller">
+    <End Role="Seller" Type="Self.Seller" Multiplicity="1" />
+    <End Role="Receipt_Purchase" Type="Self.Receipt_Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Seller">
+        <PropertyRef Name="SellerId" />
+      </Principal>
+      <Dependent Role="Receipt_Purchase">
+        <PropertyRef Name="SellerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Receipt_Sale_Tile">
+    <End Role="Tile" Type="Self.Tile" Multiplicity="1" />
+    <End Role="Receipt_Sale" Type="Self.Receipt_Sale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tile">
+        <PropertyRef Name="TileID" />
+      </Principal>
+      <Dependent Role="Receipt_Sale">
+        <PropertyRef Name="TileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TileStock_Tile">
+    <End Role="Tile" Type="Self.Tile" Multiplicity="1" />
+    <End Role="TileStock" Type="Self.TileStock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tile">
+        <PropertyRef Name="TileID" />
+      </Principal>
+      <Dependent Role="TileStock">
+        <PropertyRef Name="TileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="JASDataSource" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accounts" EntityType="Self.Account" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="EmpPays" EntityType="Self.EmpPay" />
+    <EntitySet Name="Items" EntityType="Self.Item" />
+    <EntitySet Name="Journals" EntityType="Self.Journal" />
+    <EntitySet Name="Payments" EntityType="Self.Payment" />
+    <EntitySet Name="Receipt_Purchase" EntityType="Self.Receipt_Purchase" />
+    <EntitySet Name="Receipt_Sale" EntityType="Self.Receipt_Sale" />
+    <EntitySet Name="Sellers" EntityType="Self.Seller" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Tiles" EntityType="Self.Tile" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="TileStocks" EntityType="Self.TileStock" />
+    <AssociationSet Name="FK_Journal_Account" Association="Self.FK_Journal_Account">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="Journal" EntitySet="Journals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Journal_Account1" Association="Self.FK_Journal_Account1">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="Journal" EntitySet="Journals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Receipt_Sale_Customer" Association="Self.FK_Receipt_Sale_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Receipt_Sale" EntitySet="Receipt_Sale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmpPay_Employee" Association="Self.FK_EmpPay_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="EmpPay" EntitySet="EmpPays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Receipt_Purchase_Item" Association="Self.FK_Receipt_Purchase_Item">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="Receipt_Purchase" EntitySet="Receipt_Purchase" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payment_Receipt_Purchase" Association="Self.FK_Payment_Receipt_Purchase">
+      <End Role="Receipt_Purchase" EntitySet="Receipt_Purchase" />
+      <End Role="Payment" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payment_Receipt_Sale" Association="Self.FK_Payment_Receipt_Sale">
+      <End Role="Receipt_Sale" EntitySet="Receipt_Sale" />
+      <End Role="Payment" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Receipt_Purchase_Seller" Association="Self.FK_Receipt_Purchase_Seller">
+      <End Role="Seller" EntitySet="Sellers" />
+      <End Role="Receipt_Purchase" EntitySet="Receipt_Purchase" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Receipt_Sale_Tile" Association="Self.FK_Receipt_Sale_Tile">
+      <End Role="Tile" EntitySet="Tiles" />
+      <End Role="Receipt_Sale" EntitySet="Receipt_Sale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TileStock_Tile" Association="Self.FK_TileStock_Tile">
+      <End Role="Tile" EntitySet="Tiles" />
+      <End Role="TileStock" EntitySet="TileStocks" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

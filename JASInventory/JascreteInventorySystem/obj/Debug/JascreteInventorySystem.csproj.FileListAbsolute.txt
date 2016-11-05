@@ -1,0 +1,13 @@
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JascreteInventorySystem\bin\Debug\JascreteInventorySystem.exe.config
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JascreteInventorySystem\bin\Debug\JascreteInventorySystem.exe
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JascreteInventorySystem\bin\Debug\JascreteInventorySystem.pdb
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JascreteInventorySystem\obj\Debug\JascreteInventorySystem.csprojResolveAssemblyReference.cache
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JascreteInventorySystem\obj\Debug\MainWindow.baml
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JascreteInventorySystem\obj\Debug\MainWindow.g.cs
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JascreteInventorySystem\obj\Debug\App.g.cs
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JascreteInventorySystem\obj\Debug\JascreteInventorySystem_MarkupCompile.cache
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JascreteInventorySystem\obj\Debug\JascreteInventorySystem.g.resources
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JascreteInventorySystem\obj\Debug\JascreteInventorySystem.Properties.Resources.resources
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JascreteInventorySystem\obj\Debug\JascreteInventorySystem.csproj.GenerateResource.Cache
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JascreteInventorySystem\obj\Debug\JascreteInventorySystem.exe
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JascreteInventorySystem\obj\Debug\JascreteInventorySystem.pdb

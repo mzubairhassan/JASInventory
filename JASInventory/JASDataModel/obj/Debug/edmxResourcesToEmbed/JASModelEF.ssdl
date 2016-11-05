@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JascreteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="AccountName" />
+    </Key>
+    <Property Name="AccountName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AccountType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DebitBalance" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Customer_Id" />
+    </Key>
+    <Property Name="Customer_Id" Type="int" Nullable="false" />
+    <Property Name="CustomerName" Type="text" Nullable="false" />
+    <Property Name="CustomerAddress" Type="text" Nullable="false" />
+    <Property Name="CustomerPhone" Type="int" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmpId" />
+    </Key>
+    <Property Name="EmpId" Type="int" Nullable="false" />
+    <Property Name="EmpName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmpAddress" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmpPhone" Type="int" />
+  </EntityType>
+  <EntityType Name="EmpPay">
+    <Key>
+      <PropertyRef Name="EmpId" />
+    </Key>
+    <Property Name="EmpId" Type="int" Nullable="false" />
+    <Property Name="Salary" Type="float" Nullable="false" />
+    <Property Name="Commission" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="ItemId" />
+    </Key>
+    <Property Name="ItemId" Type="varbinary" MaxLength="50" Nullable="false" />
+    <Property Name="ItemName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ItemDescription" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Journal">
+    <Key>
+      <PropertyRef Name="EntryNo" />
+    </Key>
+    <Property Name="EntryNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DebitAc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreditAc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DebitAmount" Type="float" Nullable="false" />
+    <Property Name="CreditAmount" Type="float" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="TransDate" Type="datetime2" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="PaymentId" />
+    </Key>
+    <Property Name="PaymentId" Type="int" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TimeLimit" Type="datetime" Nullable="false" />
+    <Property Name="Amount" Type="float" Nullable="false" />
+    <Property Name="PayementType" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Receipt_Purchase">
+    <Key>
+      <PropertyRef Name="ReceiptNo" />
+    </Key>
+    <Property Name="ReceiptNo" Type="int" Nullable="false" />
+    <Property Name="PurchaseDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="Qty" Type="int" Nullable="false" />
+    <Property Name="SellerId" Type="int" Nullable="false" />
+    <Property Name="DeliveryCost" Type="float" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="Total" Type="float" Nullable="false" />
+    <Property Name="Description" Type="text" />
+    <Property Name="ItemId" Type="varbinary" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Receipt_Sale">
+    <Key>
+      <PropertyRef Name="ReceiptNo" />
+    </Key>
+    <Property Name="ReceiptNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SaleDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CustomerId" Type="int" Nullable="false" />
+    <Property Name="TileId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Count" Type="int" Nullable="false" />
+    <Property Name="DeliveryCost" Type="float" />
+    <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="Total" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Seller">
+    <Key>
+      <PropertyRef Name="SellerId" />
+    </Key>
+    <Property Name="SellerId" Type="int" Nullable="false" />
+    <Property Name="SellerName" Type="text" />
+    <Property Name="SellerPhone" Type="int" />
+    <Property Name="SellerAddress" Type="text" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Tile">
+    <Key>
+      <PropertyRef Name="TileID" />
+    </Key>
+    <Property Name="TileID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TileName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TileSize" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TileColor" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TilePrice" Type="float" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Jascrete.dbo.TileStock' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="TileStock">
+    <Key>
+      <PropertyRef Name="TileId" />
+      <PropertyRef Name="Qty" />
+      <PropertyRef Name="DateQtyUpdate" />
+      <PropertyRef Name="QtySold" />
+    </Key>
+    <Property Name="TileId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Qty" Type="int" Nullable="false" />
+    <Property Name="DateQtyUpdate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="QtySold" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="UserName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_EmpPay_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="EmpPay" Type="Self.EmpPay" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmpId" />
+      </Principal>
+      <Dependent Role="EmpPay">
+        <PropertyRef Name="EmpId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Journal_Account">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="Journal" Type="Self.Journal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AccountName" />
+      </Principal>
+      <Dependent Role="Journal">
+        <PropertyRef Name="DebitAc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Journal_Account1">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="Journal" Type="Self.Journal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="AccountName" />
+      </Principal>
+      <Dependent Role="Journal">
+        <PropertyRef Name="CreditAc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payment_Receipt_Purchase">
+    <End Role="Receipt_Purchase" Type="Self.Receipt_Purchase" Multiplicity="1" />
+    <End Role="Payment" Type="Self.Payment" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Receipt_Purchase">
+        <PropertyRef Name="ReceiptNo" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="PaymentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payment_Receipt_Sale">
+    <End Role="Receipt_Sale" Type="Self.Receipt_Sale" Multiplicity="1" />
+    <End Role="Payment" Type="Self.Payment" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Receipt_Sale">
+        <PropertyRef Name="ReceiptNo" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="PaymentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Receipt_Purchase_Item">
+    <End Role="Item" Type="Self.Item" Multiplicity="1" />
+    <End Role="Receipt_Purchase" Type="Self.Receipt_Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="ItemId" />
+      </Principal>
+      <Dependent Role="Receipt_Purchase">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Receipt_Purchase_Seller">
+    <End Role="Seller" Type="Self.Seller" Multiplicity="1" />
+    <End Role="Receipt_Purchase" Type="Self.Receipt_Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Seller">
+        <PropertyRef Name="SellerId" />
+      </Principal>
+      <Dependent Role="Receipt_Purchase">
+        <PropertyRef Name="SellerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Receipt_Sale_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Receipt_Sale" Type="Self.Receipt_Sale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Customer_Id" />
+      </Principal>
+      <Dependent Role="Receipt_Sale">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Receipt_Sale_Tile">
+    <End Role="Tile" Type="Self.Tile" Multiplicity="1" />
+    <End Role="Receipt_Sale" Type="Self.Receipt_Sale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tile">
+        <PropertyRef Name="TileID" />
+      </Principal>
+      <Dependent Role="Receipt_Sale">
+        <PropertyRef Name="TileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TileStock_Tile">
+    <End Role="Tile" Type="Self.Tile" Multiplicity="1" />
+    <End Role="TileStock" Type="Self.TileStock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tile">
+        <PropertyRef Name="TileID" />
+      </Principal>
+      <Dependent Role="TileStock">
+        <PropertyRef Name="TileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="JascreteModelStoreContainer">
+    <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmpPay" EntityType="Self.EmpPay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Journal" EntityType="Self.Journal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Receipt_Purchase" EntityType="Self.Receipt_Purchase" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Receipt_Sale" EntityType="Self.Receipt_Sale" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Seller" EntityType="Self.Seller" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tile" EntityType="Self.Tile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TileStock" EntityType="Self.TileStock" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [TileStock].[TileId] AS [TileId], 
+    [TileStock].[Qty] AS [Qty], 
+    [TileStock].[DateQtyUpdate] AS [DateQtyUpdate], 
+    [TileStock].[QtySold] AS [QtySold]
+    FROM [dbo].[TileStock] AS [TileStock]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_EmpPay_Employee" Association="Self.FK_EmpPay_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="EmpPay" EntitySet="EmpPay" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Journal_Account" Association="Self.FK_Journal_Account">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="Journal" EntitySet="Journal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Journal_Account1" Association="Self.FK_Journal_Account1">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="Journal" EntitySet="Journal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payment_Receipt_Purchase" Association="Self.FK_Payment_Receipt_Purchase">
+      <End Role="Receipt_Purchase" EntitySet="Receipt_Purchase" />
+      <End Role="Payment" EntitySet="Payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payment_Receipt_Sale" Association="Self.FK_Payment_Receipt_Sale">
+      <End Role="Receipt_Sale" EntitySet="Receipt_Sale" />
+      <End Role="Payment" EntitySet="Payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Receipt_Purchase_Item" Association="Self.FK_Receipt_Purchase_Item">
+      <End Role="Item" EntitySet="Item" />
+      <End Role="Receipt_Purchase" EntitySet="Receipt_Purchase" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Receipt_Purchase_Seller" Association="Self.FK_Receipt_Purchase_Seller">
+      <End Role="Seller" EntitySet="Seller" />
+      <End Role="Receipt_Purchase" EntitySet="Receipt_Purchase" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Receipt_Sale_Customer" Association="Self.FK_Receipt_Sale_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Receipt_Sale" EntitySet="Receipt_Sale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Receipt_Sale_Tile" Association="Self.FK_Receipt_Sale_Tile">
+      <End Role="Tile" EntitySet="Tile" />
+      <End Role="Receipt_Sale" EntitySet="Receipt_Sale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TileStock_Tile" Association="Self.FK_TileStock_Tile">
+      <End Role="Tile" EntitySet="Tile" />
+      <End Role="TileStock" EntitySet="TileStock" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

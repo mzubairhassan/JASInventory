@@ -1,0 +1,14 @@
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JASInventory\bin\Debug\JASInventory.exe.config
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JASInventory\obj\Debug\JASInventory.csprojResolveAssemblyReference.cache
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JASInventory\obj\Debug\JASInventory.Properties.Resources.resources
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JASInventory\obj\Debug\JASInventory.csproj.GenerateResource.Cache
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JASInventory\bin\Debug\JASInventory.exe
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JASInventory\bin\Debug\JASInventory.pdb
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JASInventory\bin\Debug\JASDataModel.dll
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JASInventory\bin\Debug\JASDataModel.pdb
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JASInventory\bin\Debug\EntityFramework.xml
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JASInventory\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JASInventory\obj\Debug\JASInventory.exe
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JASInventory\obj\Debug\JASInventory.pdb
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JASInventory\obj\Debug\JASInventory.UserLogin.resources
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JASInventory\obj\Debug\JASInventory.MainScreen.resources

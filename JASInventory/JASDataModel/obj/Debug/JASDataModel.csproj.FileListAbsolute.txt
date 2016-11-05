@@ -1,0 +1,10 @@
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JASDataModel\bin\Debug\JASDataModel.dll.config
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JASDataModel\bin\Debug\JASDataModel.dll
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JASDataModel\bin\Debug\JASDataModel.pdb
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JASDataModel\bin\Debug\EntityFramework.dll
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JASDataModel\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JASDataModel\bin\Debug\EntityFramework.xml
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JASDataModel\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JASDataModel\obj\Debug\JASDataModel.csprojResolveAssemblyReference.cache
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JASDataModel\obj\Debug\JASDataModel.dll
+c:\users\muhammadzubair\documents\visual studio 2013\Projects\JASInventory\JASDataModel\obj\Debug\JASDataModel.pdb
